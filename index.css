@@ -1,0 +1,134 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --p-grayish-blue: hsl(237, 18%, 59%);
+    --p-soft-red: hsl(345, 95%, 68%);
+
+    --n-very-dark-blue: hsl(235, 16%, 14%);
+    --n-dark-desaturated-blue: hsl(236, 21%, 26%);
+    --n-very-dark: hsl(234, 17%, 12%);
+
+    font-size: 14px;
+    --font: 'Red Hat Text', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+
+    background: url('./images/pattern-hills.svg') no-repeat bottom, url('./images/bg-stars.svg') no-repeat;
+    background-size: contain;
+    background-color: var(--n-very-dark);
+    
+    font-family: var(--font);
+}
+
+.title{
+    font-size: 22px;
+    color: #fff;
+    text-transform: uppercase;
+
+    margin-top: -15%;
+    margin-bottom: 5.5%;
+}
+
+.timer-container{
+    display: flex;
+    gap: 10%;
+    
+    width: 75vw;
+}
+
+.timer{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 10vw;
+    aspect-ratio: 1;
+
+    font-size: 2.5rem;
+    color: var(--p-soft-red);
+    background-color: var(--n-dark-desaturated-blue);
+    background-image:  radial-gradient(circle at 0 50%, var(--n-very-dark) 0 4%, transparent 5.2%), radial-gradient(circle at 100% 50%, var(--n-very-dark) 0 4%, transparent 5.5%), linear-gradient(hsl(234, 17%, 15%), var(--n-dark-desaturated-blue));
+
+    border-radius: 10%;
+    /* overflow: hidden; */
+
+    box-shadow: 0 10px rgba(0, 0, 0, 0.568);
+}
+
+.timer-container div{
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.timer-up,.timer-down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-up{
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    clip-path: polygon(0 0 ,100% 0, 100% 50%, 0 50%);
+    background-color: var(--n-dark-desaturated-blue);
+    /* background-image: linear-gradient(hsl(234, 17%, 15%), var(--n-dark-desaturated-blue)), radial-gradient(circle at center, white, yellow); */
+    background-image:  radial-gradient(circle at 0 50%, var(--n-very-dark) 0 4%, transparent 5.2%), radial-gradient(circle at 100% 50%, var(--n-very-dark) 0 4%, transparent 5.5%), linear-gradient(hsl(234, 17%, 15%), var(--n-dark-desaturated-blue));
+    backface-visibility: hidden;
+    border-radius: 10%;
+
+}
+.timer-up-back{
+    clip-path: polygon(0 50% ,100% 50%, 100% 100%, 0 100%);
+    transform: rotateX(180deg);
+    background-image: radial-gradient(circle at 0 50%, var(--n-very-dark) 0 4%, transparent 5.2%),  radial-gradient(circle at 100% 50%, var(--n-very-dark) 0 4%, transparent 5.5%), linear-gradient(var(--n-dark-desaturated-blue),hsl(237, 21%, 21%));
+}
+
+.timer-down{
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    clip-path: polygon(0 50% ,100% 50%, 100% 100%, 0 100%);
+    background-color: var(--n-dark-desaturated-blue);
+    background-image: radial-gradient(circle at 0 50%, var(--n-very-dark) 0 4%, transparent 5.2%),  radial-gradient(circle at 100% 50%, var(--n-very-dark) 0 4%, transparent 5.5%), linear-gradient(var(--n-dark-desaturated-blue),hsl(237, 21%, 21%));
+    border-radius: 10%;  
+}
+
+.divider{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 1%;
+    background-color: #303030;
+}
+
+.timer-titles{
+    display: flex;
+    justify-content: space-between;
+}
+
+.time-menu{
+    z-index: 5;
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 25vw;
+    height: 10vh;
+    background-color: white;
+}
+
